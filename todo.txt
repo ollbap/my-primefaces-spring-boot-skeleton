@@ -1,5 +1,6 @@
 ### TODO
 Aprender a meter mano en el contexto de spring
+Implementar manager completo
 Cambiar paquetes
 Hibernate
 Arreglar injección

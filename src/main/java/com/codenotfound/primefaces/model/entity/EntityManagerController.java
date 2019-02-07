@@ -11,14 +11,20 @@ import lombok.Getter;
 public class EntityManagerController {
 	
 	@Getter
-	private List<Entity> entities;
+	private SelectableListDataModel<Entity> entities;
 	
 	private EntityService entityService;
 	
 	@Inject 
 	public EntityManagerController(EntityService entityService) {
 		this.entityService = entityService;
-		entities = entityService.getEntities();
+		entities = new SelectableListDataModel<>(entityService.getEntities(), Entity::getName);
+	}
+	
+	public void deleteEntity() {
+		//TODO mejorar los lios del selector
+		Entity toDelete = ((List<Entity>)entities.getWrappedData()).get(0);
+		entityService.delete(toDelete.getId());
 	}
 	
 }

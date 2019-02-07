@@ -20,4 +20,8 @@ public class EntityService {
 		return entities;
 	}
 
+	public void delete(int id) {
+		entities.removeIf(e -> e.getId() == id);
+	}
+
 }
