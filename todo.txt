@@ -1,4 +1,8 @@
+### TODO
 Cambiar paquetes
-Lombock
 Hibernate
+Arreglar injección
+
+###Completado
+Lombock
 Quitar dependencia padre
