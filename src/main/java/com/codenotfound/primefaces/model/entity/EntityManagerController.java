@@ -11,15 +11,14 @@ import lombok.Getter;
 public class EntityManagerController {
 	
 	@Getter
-	List<Entity> entities;
+	private List<Entity> entities;
 	
-	@Inject
-	EntityService entityService;
+	private EntityService entityService;
 	
-	public EntityManagerController() {
-		//TODO use inject.
-//		entities = entityService.getEntities();
-		entities = new EntityService().getEntities();
+	@Inject 
+	public EntityManagerController(EntityService entityService) {
+		this.entityService = entityService;
+		entities = entityService.getEntities();
 	}
 	
 }
