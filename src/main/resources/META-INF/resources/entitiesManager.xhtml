@@ -11,13 +11,17 @@
 <h:body>
   <h:form id="helloworld-form">
 
-	<p:dataTable var="entity" value="#{entityManagerController.entities}">
+	<p:dataTable var="entity" value="#{entityManagerController.entities}" >
 	    <p:column headerText="Id">
 	        <h:outputText value="#{entity.id}" />
 	    </p:column>
 	
 	    <p:column headerText="Year">
 	        <h:outputText value="#{entity.name}" />
+	    </p:column>
+	    
+	    <p:column headerText="Year">
+			<p:button action="#{entityManagerController.deleteEntity}" value="Delete" icon="pi pi-star" style="margin-right:20px;"/>
 	    </p:column>
 	    
 	</p:dataTable>

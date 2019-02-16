@@ -23,6 +23,7 @@ public class EntityManagerController {
 	
 	public void deleteEntity() {
 		//TODO mejorar los lios del selector
+		@SuppressWarnings("unchecked")
 		Entity toDelete = ((List<Entity>)entities.getWrappedData()).get(0);
 		entityService.delete(toDelete.getId());
 	}
