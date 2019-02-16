@@ -1,9 +1,10 @@
 ### TODO
-Arreglar manager básico
 Hibernate, acceso directo a entity manager
 Aprender a meter mano en el contexto de spring
-Scopes, sesión y flujo
 Navegación
+  Ejecutar metodos al entrar y salir de vistas
+  Unir vistas
+  Almacenar en contextos Scopes, sesión y flujo
 Completar manager add/list/delete
 Limpiar todo al final
 
