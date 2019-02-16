@@ -7,6 +7,7 @@ Hibernate
 Scopes, sesión y flujo
 Navegación
 Limpiar todo al final
+Ejecutable
 
 ###Completado
 Lombock

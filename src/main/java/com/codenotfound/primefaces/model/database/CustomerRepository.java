@@ -1,4 +1,4 @@
-package com.codenotfound.primefaces;
+package com.codenotfound.primefaces.model.database;
 
 import java.util.List;
 

@@ -4,6 +4,10 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+
+import com.codenotfound.primefaces.model.database.Customer;
+import com.codenotfound.primefaces.model.database.CustomerRepository;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,7 +20,7 @@ public class SpringPrimeFacesApplication {
 	}
 
 	@Bean
-	public CommandLineRunner demo(CustomerRepository repository) {
+	public CommandLineRunner loadDummyTestData(CustomerRepository repository) {
 		return (args) -> {
 			// save a couple of customers
 			repository.save(new Customer("Jack", "Bauer"));

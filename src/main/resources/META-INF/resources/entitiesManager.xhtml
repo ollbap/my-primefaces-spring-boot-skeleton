@@ -10,21 +10,21 @@
 
 <h:body>
   <h:form id="helloworld-form">
-	<p:dataTable var="entity" value="#{entityManagerController.entities}" >
+	<p:dataTable var="c" value="#{customerManagerController.entities}" >
 	    <p:column headerText="Id">
-	        <h:outputText value="#{entity.id}" />
+	        <h:outputText value="#{c.id}" />
 	    </p:column>
 	
 	    <p:column headerText="First Name">
-	        <h:outputText value="#{entity.firstName}" />
+	        <h:outputText value="#{c.firstName}" />
 	    </p:column>
 	    
 	    <p:column headerText="Second Name">
-	        <h:outputText value="#{entity.lastName}" />
+	        <h:outputText value="#{c.lastName}" />
 	    </p:column>
 	    
 	    <p:column headerText="">
-			<p:button action="#{entityManagerController.deleteEntity}" value="Delete" icon="pi pi-star" style="margin-right:20px;"/>
+			<p:button action="#{customerManagerController.deleteEntity}" value="Delete" icon="pi pi-star" style="margin-right:20px;"/>
 	    </p:column>
 	    
 	</p:dataTable>

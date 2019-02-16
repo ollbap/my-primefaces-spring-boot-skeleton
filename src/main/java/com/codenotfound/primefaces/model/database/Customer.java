@@ -1,4 +1,4 @@
-package com.codenotfound.primefaces;
+package com.codenotfound.primefaces.model.database;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

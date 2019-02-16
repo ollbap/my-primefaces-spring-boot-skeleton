@@ -1,4 +1,4 @@
-package com.codenotfound.primefaces.model.entity;
+package com.codenotfound.primefaces.model.customer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,18 +8,18 @@ import javax.inject.Named;
 
 import org.eclipse.jdt.annotation.Nullable;
 
-import com.codenotfound.primefaces.Customer;
-import com.codenotfound.primefaces.CustomerRepository;
+import com.codenotfound.primefaces.model.database.Customer;
+import com.codenotfound.primefaces.model.database.CustomerRepository;
 
 @Named
-public class EntityManagerController {
+public class CustomerManagerController {
 	
 	private @Nullable SelectableListDataModel<Customer> entities = null;
 	
 	private CustomerRepository customerRepository;
 	
 	@Inject 
-	public EntityManagerController(CustomerRepository customerRepository) {
+	public CustomerManagerController(CustomerRepository customerRepository) {
 		this.customerRepository  = customerRepository;
 	}
 	
