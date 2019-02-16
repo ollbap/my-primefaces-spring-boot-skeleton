@@ -1,31 +1,48 @@
 package com.codenotfound.primefaces.model.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import lombok.Getter;
+import org.eclipse.jdt.annotation.Nullable;
+
+import com.codenotfound.primefaces.Customer;
+import com.codenotfound.primefaces.CustomerRepository;
 
 @Named
 public class EntityManagerController {
 	
-	@Getter
-	private SelectableListDataModel<Entity> entities;
+	private @Nullable SelectableListDataModel<Customer> entities = null;
 	
-	private EntityService entityService;
+	private CustomerRepository customerRepository;
 	
 	@Inject 
-	public EntityManagerController(EntityService entityService) {
-		this.entityService = entityService;
-		entities = new SelectableListDataModel<>(entityService.getEntities(), Entity::getName);
+	public EntityManagerController(CustomerRepository customerRepository) {
+		this.customerRepository  = customerRepository;
+	}
+	
+	public SelectableListDataModel<Customer> getEntities() {
+		SelectableListDataModel<Customer> lentities = entities;
+		if (lentities == null) {
+			lentities = prepareEntitiesModel();
+			entities = lentities;
+		}
+		return lentities;
+	}
+
+	private SelectableListDataModel<Customer> prepareEntitiesModel() {
+		List<Customer> customers = new ArrayList<>();
+		customerRepository.findAll().forEach(c -> customers.add(c));
+		return new SelectableListDataModel<>(customers, c -> ""+c.getId());
 	}
 	
 	public void deleteEntity() {
 		//TODO mejorar los lios del selector
 		@SuppressWarnings("unchecked")
-		Entity toDelete = ((List<Entity>)entities.getWrappedData()).get(0);
-		entityService.delete(toDelete.getId());
+		Customer toDelete = ((List<Customer>)entities.getWrappedData()).get(0);
+		customerRepository.deleteById(toDelete.getId());
 	}
 	
 }
