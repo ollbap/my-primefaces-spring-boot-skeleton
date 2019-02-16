@@ -8,6 +8,7 @@ Scopes, sesión y flujo
 Navegación
 Limpiar todo al final
 Ejecutable
+Completar manager add/list/delete
 
 ###Completado
 Lombock

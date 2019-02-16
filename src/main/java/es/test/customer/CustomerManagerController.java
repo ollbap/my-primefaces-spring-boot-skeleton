@@ -13,6 +13,7 @@ import es.test.database.CustomerRepository;
 public class CustomerManagerController {
 	
 	private CustomerRepository customerRepository;
+	List<Customer> customers = new ArrayList<>();
 	
 	@Inject 
 	public CustomerManagerController(CustomerRepository customerRepository) {
@@ -20,8 +21,9 @@ public class CustomerManagerController {
 	}
 	
 	public List<Customer> getCustomers() {
-		List<Customer> customers = new ArrayList<>();
-		customerRepository.findAll().forEach(c -> customers.add(c));
+		if (customers.isEmpty()) {
+			customerRepository.findAll().forEach(c -> customers.add(c));
+		}
 		return customers;
 	}
 
