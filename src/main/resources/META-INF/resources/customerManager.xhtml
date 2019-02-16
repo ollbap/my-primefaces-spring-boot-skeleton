@@ -10,12 +10,12 @@
 
 <h:body>
   <h:form id="helloworld-form">
-	<p:dataTable var="c" value="#{customerManagerController.entities}" >
+	<p:dataTable var="c" value="#{customerManagerController.customers}" >
 	    <p:column headerText="Id">
 	        <h:outputText value="#{c.id}" />
 	    </p:column>
 	
-	    <p:column headerText="First Name">
+	    <p:column headerText="First Name" sortBy="#{c.firstName}">
 	        <h:outputText value="#{c.firstName}" />
 	    </p:column>
 	    
@@ -24,7 +24,11 @@
 	    </p:column>
 	    
 	    <p:column headerText="">
-			<p:button action="#{customerManagerController.deleteEntity}" value="Delete" icon="pi pi-star" style="margin-right:20px;"/>
+			<p:commandButton 
+				action="#{customerManagerController.delete(c)}" 
+				value="Delete" icon="pi pi-star" 
+				update="@form"
+				style="margin-right:20px;" />
 	    </p:column>
 	    
 	</p:dataTable>
