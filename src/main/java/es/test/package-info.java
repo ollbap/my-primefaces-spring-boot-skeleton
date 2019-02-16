@@ -5,4 +5,4 @@
  * the terms of the license agreement if they where provided to you.
  ******************************************************************************/
 @org.eclipse.jdt.annotation.NonNullByDefault
-package com.codenotfound.primefaces.model.database;
+package es.test;

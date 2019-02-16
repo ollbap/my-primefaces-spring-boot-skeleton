@@ -1,4 +1,4 @@
-package com.codenotfound.primefaces.model.database;
+package es.test.database;
 
 import java.util.List;
 

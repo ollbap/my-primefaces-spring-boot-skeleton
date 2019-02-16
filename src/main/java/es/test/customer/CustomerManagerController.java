@@ -1,4 +1,4 @@
-package com.codenotfound.primefaces.model.customer;
+package es.test.customer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,8 +8,8 @@ import javax.inject.Named;
 
 import org.eclipse.jdt.annotation.Nullable;
 
-import com.codenotfound.primefaces.model.database.Customer;
-import com.codenotfound.primefaces.model.database.CustomerRepository;
+import es.test.database.Customer;
+import es.test.database.CustomerRepository;
 
 @Named
 public class CustomerManagerController {

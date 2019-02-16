@@ -1,4 +1,4 @@
-package com.codenotfound.primefaces.model.customer;
+package es.test.customer;
 
 import java.util.List;
 import java.util.function.Function;

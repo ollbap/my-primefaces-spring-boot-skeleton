@@ -1,12 +1,12 @@
-package com.codenotfound.primefaces;
+package es.test;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import com.codenotfound.primefaces.model.database.Customer;
-import com.codenotfound.primefaces.model.database.CustomerRepository;
+import es.test.database.Customer;
+import es.test.database.CustomerRepository;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
