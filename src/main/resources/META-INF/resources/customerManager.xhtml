@@ -10,6 +10,12 @@
 
 <h:body>
   <h:form id="helloworld-form">
+  
+  
+  CustomerManagerController postConstruct: #{customerManagerController.postConstructDate} <br/>
+  SessionBean postConstruct: #{sessionBean.postConstructDate}<br/>
+  FlowBean postConstruct: #{flowBean.postConstructDate}<br/>
+  
 	<p:dataTable var="c" value="#{customerManagerController.customers}" >
 	    <p:column headerText="Id">
 	        <h:outputText value="#{c.id}" />

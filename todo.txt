@@ -5,6 +5,7 @@ Navegación
   Ejecutar metodos al entrar y salir de vistas
   Unir vistas
   Almacenar en contextos Scopes, sesión y flujo
+  Subflujos y pasar parametros
 Completar manager add/list/delete
 Limpiar todo al final
 
