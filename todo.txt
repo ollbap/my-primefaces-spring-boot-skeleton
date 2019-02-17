@@ -1,3 +1,5 @@
+### El proyecto contiguo spring-webflow-jsf es mas completo
+
 ### TODO
 Hibernate, acceso directo a entity manager
 Aprender a meter mano en el contexto de spring
