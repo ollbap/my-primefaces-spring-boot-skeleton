@@ -1,76 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-  xmlns:h="http://java.sun.com/jsf/html"
-  xmlns:p="http://primefaces.org/ui">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-  <title>PrimeFaces Hello World Example</title>
+	<title>PrimeFaces Hello World Example</title>
 </h:head>
 
 <h:body>
-  <h:form id="mainForm">
+	<h:form id="mainForm">
+		<p:messages id="messages" showDetail="true" closable="true">
+			<p:autoUpdate />
+		</p:messages>
   
-  
-  CustomerManagerController postConstruct: #{customerManagerController.postConstructDate} <br/>
-  SessionBean postConstruct: #{sessionBean.postConstructDate}<br/>
-  FlowBean postConstruct: #{flowBean.postConstructDate}<br/>
-  
-	<p:dataTable var="c" value="#{customerManagerController.customers}" >
-	    <p:column headerText="Id">
-	        <h:outputText value="#{c.id}" />
-	    </p:column>
-	
-	    <p:column headerText="First Name" sortBy="#{c.firstName}">
-	        <h:outputText value="#{c.firstName}" />
-	    </p:column>
-	    
-	    <p:column headerText="Second Name">
-	        <h:outputText value="#{c.lastName}" />
-	    </p:column>
-	    
-	    <p:column headerText="">
-			<p:commandButton 
-				action="#{customerManagerController.delete(c)}" 
-				value="Delete" icon="pi pi-star" 
-				update="@form"/>
-			<p:commandButton 
-				action="#{customerManagerController.edit(c)}" 
-				value="Edit" icon="pi pi-star" 
-				update=":editionDialog"
-				oncomplete="PF('editionDialog').show()" />
-	    </p:column>
-	    
-	</p:dataTable>
-	
-	<p:commandButton 
-		action="#{customerManagerController.createNew()}" 
-		value="New" icon="pi pi-star" 
-		update=":editionDialog"
-		oncomplete="PF('editionDialog').show()" />
+		<p:dataTable var="c" value="#{customerManagerController.customers}">
+			<p:column headerText="Id">
+				<h:outputText value="#{c.id}" />
+			</p:column>
+
+			<p:column headerText="First Name" sortBy="#{c.firstName}">
+				<h:outputText value="#{c.firstName}" />
+			</p:column>
+
+			<p:column headerText="Second Name">
+				<h:outputText value="#{c.lastName}" />
+			</p:column>
+
+			<p:column headerText="">
+				<p:commandButton action="#{customerManagerController.edit(c)}"
+					value="Edit" icon="pi pi-star" update=":editionDialog"
+					oncomplete="PF('editionDialog').show()" />
+				<p:commandButton action="#{customerManagerController.delete(c)}"
+					value="Delete" icon="pi pi-star" update="@form" />
+			</p:column>
+
+		</p:dataTable>
+
+		<p:commandButton action="#{customerManagerController.createNew()}"
+			value="New" icon="pi pi-star" update=":editionDialog"
+			oncomplete="PF('editionDialog').show()" />
 
 
-  </h:form>
-  
-    <p:dialog id="editionDialog" header="editar" widgetVar="editionDialog" modal="true" resizable="false">
-	  <h:form>
-	      <h:panelGrid id="greeting-panel" columns="2" cellpadding="4">
-	        <h:outputText value="First Name" />
-	        <p:inputText value="#{customerManagerController.editor.edited.firstName}" />
-	        
-	        <h:outputText value="Last Name" />
-	        <p:inputText value="#{customerManagerController.editor.edited.lastName}" />
-	      </h:panelGrid>
-			<p:commandButton 
-				action="#{customerManagerController.editor.saveEdition()}" 
-				value="Save" icon="pi pi-star" 
-				update="mainForm"
+	</h:form>
+
+	<p:dialog id="editionDialog" header="editar" widgetVar="editionDialog"
+		modal="true" resizable="false">
+		<p:messages id="messages" showDetail="true" closable="true">
+			<p:autoUpdate />
+		</p:messages>
+		<h:form>
+			<h:panelGrid id="greeting-panel" columns="2" cellpadding="4">
+				<h:outputText value="First Name" />
+				<p:inputText
+					value="#{customerManagerController.editor.edited.firstName}" />
+
+				<h:outputText value="Last Name" />
+				<p:inputText
+					value="#{customerManagerController.editor.edited.lastName}" />
+			</h:panelGrid>
+			<p:commandButton
+				action="#{customerManagerController.editor.saveEdition()}"
+				value="Save" icon="pi pi-star" update="mainForm" />
+			<p:commandButton value="Cancel" icon="pi pi-star"
 				oncomplete="PF('editionDialog').hide()" />
-			<p:commandButton 
-				value="Cancel" icon="pi pi-star" 
-				oncomplete="PF('editionDialog').hide()" />
-	  </h:form>
-    </p:dialog>
-    
+		</h:form>
+	</p:dialog>
+
 </h:body>
 </html>
