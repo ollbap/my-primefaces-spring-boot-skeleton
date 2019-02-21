@@ -9,7 +9,7 @@
 </h:head>
 
 <h:body>
-  <h:form id="helloworld-form">
+  <h:form id="mainForm">
   
   
   CustomerManagerController postConstruct: #{customerManagerController.postConstructDate} <br/>
@@ -33,19 +33,44 @@
 			<p:commandButton 
 				action="#{customerManagerController.delete(c)}" 
 				value="Delete" icon="pi pi-star" 
-				update="@form"
-				style="margin-right:20px;" />
+				update="@form"/>
+			<p:commandButton 
+				action="#{customerManagerController.edit(c)}" 
+				value="Edit" icon="pi pi-star" 
+				update=":editionDialog"
+				oncomplete="PF('editionDialog').show()" />
 	    </p:column>
 	    
 	</p:dataTable>
+	
+	<p:commandButton 
+		action="#{customerManagerController.createNew()}" 
+		value="New" icon="pi pi-star" 
+		update=":editionDialog"
+		oncomplete="PF('editionDialog').show()" />
 
-    <p:dialog header="Greeting" widgetVar="greetingDialog"
-      modal="true" resizable="false">
-      <h:panelGrid id="greeting-panel" columns="1" cellpadding="4">
-        <h:outputText value="#{helloWorld.showGreeting()}" />
-      </h:panelGrid>
-    </p:dialog>
 
   </h:form>
+  
+    <p:dialog id="editionDialog" header="editar" widgetVar="editionDialog" modal="true" resizable="false">
+	  <h:form>
+	      <h:panelGrid id="greeting-panel" columns="2" cellpadding="4">
+	        <h:outputText value="First Name" />
+	        <p:inputText value="#{customerManagerController.editor.edited.firstName}" />
+	        
+	        <h:outputText value="Last Name" />
+	        <p:inputText value="#{customerManagerController.editor.edited.lastName}" />
+	      </h:panelGrid>
+			<p:commandButton 
+				action="#{customerManagerController.editor.saveEdition()}" 
+				value="Save" icon="pi pi-star" 
+				update="mainForm"
+				oncomplete="PF('editionDialog').hide()" />
+			<p:commandButton 
+				value="Cancel" icon="pi pi-star" 
+				oncomplete="PF('editionDialog').hide()" />
+	  </h:form>
+    </p:dialog>
+    
 </h:body>
 </html>

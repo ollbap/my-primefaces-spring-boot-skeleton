@@ -20,18 +20,18 @@ public class CustomerManagerController {
 	@Getter
 	private Date postConstructDate = new Date();
 	
+	@Inject @Getter
 	private CustomerRepository customerRepository;
+	
+	@Getter
+	private CustomerEditionController editor = new CustomerEditionController(this);
+	
 	private List<Customer> customers = new ArrayList<>();
 	
 	@PostConstruct
 	public void postConstruct() {
 		refreshData();
 		postConstructDate = new Date();
-	}
-	
-	@Inject 
-	public CustomerManagerController(CustomerRepository customerRepository) {
-		this.customerRepository  = customerRepository;
 	}
 	
 	public List<Customer> getCustomers() {
@@ -41,6 +41,14 @@ public class CustomerManagerController {
 	public void delete(Customer toDelete) {
 		customerRepository.deleteById(toDelete.getId());
 		refreshData();
+	}
+	
+	public void edit(Customer toEdit) {
+		editor.prepareToEdit(toEdit);
+	}
+	
+	public void createNew() {
+		editor.createNew();
 	}
 	
 	public void refreshData() {

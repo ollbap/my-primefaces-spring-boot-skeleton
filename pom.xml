@@ -36,16 +36,14 @@
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
-			<version>1.4.190</version>
+			<version>1.4.197</version>
 			<scope>runtime</scope>
 		</dependency>
-
-
 
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<version>1.18.4</version>
+			<version>1.18.6</version>
 			<scope>provided</scope>
 		</dependency>
 
