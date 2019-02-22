@@ -3,6 +3,7 @@ package es.test;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.annotation.Bean;
 
 import es.test.database.Customer;
@@ -12,6 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @SpringBootApplication
+@ServletComponentScan
 public class SpringPrimeFacesApplication {
 	private static final Logger log = LoggerFactory.getLogger(SpringPrimeFacesApplication.class);
 
