@@ -1,12 +1,13 @@
-# jsf-primefaces-spring-boot
+# my-primefaces-spring-boot-skeleton
 
-A detailed step-by-step tutorial on how to implement a PrimeFaces Example with Spring Boot and Maven.
+A sketelon project to test integration of primefaces, spring boot, spring security, rest services and direct servlets.
+
+Based on example from:
 
 [https://www.codenotfound.com/jsf-primefaces-example-spring-boot-maven.html](https://www.codenotfound.com/jsf-primefaces-example-spring-boot-maven.html)
 
-#JPA:
+#JPA resources
 https://spring.io/guides/gs/accessing-data-jpa/
 
-#JSF flows
-https://blog.oio.de/2014/02/12/a-comprehensive-example-of-jsf-faces-flow/
-https://www.byteslounge.com/tutorials/jsf-flow-example
+#Spring security resources
+https://docs.spring.io/spring-security/site/docs/current/guides/html5/helloworld-boot.html
