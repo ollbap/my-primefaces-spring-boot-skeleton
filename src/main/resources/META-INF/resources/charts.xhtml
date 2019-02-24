@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>PrimeFaces Hello World Example</title>
+</h:head>
+
+<h:body>
+	<h:form id="mainForm">
+		<p:messages id="messages" showDetail="true" closable="true">
+			<p:autoUpdate />
+		</p:messages>
+
+		<script type="text/javascript">
+		    //<![CDATA[
+		function exportChart() {
+		    //export image
+		    $('#output').empty().append(PF('chart').exportAsImage());
+		 
+		    //show the dialog
+		    PF('dlg').show();
+		}
+		    //]]>
+		</script>
+
+		<h3 style="margin-top:0">Dynamic</h3>
+		<p:chart type="line" model="#{chartView.lineModel1}"
+			style="height:300px;" widgetVar="chart" />
+		<p:commandButton type="button" value="Export as image" icon="pi pi-home" onclick="exportChart()"/>
+		<br />
+		
+		<h3 style="margin-top:0">JFreeChart</h3>
+		<p:graphicImage value="#{graphicImageView.chart}" />
+		
+		<p:commandButton value="Download" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" icon="pi pi-arrow-down">
+    	    <p:fileDownload value="#{graphicImageView.chart}" />
+	    </p:commandButton>      
+
+	
+		<br />
+		<p:commandButton action="index" value="Back" />
+	</h:form>
+	
+	<p:dialog widgetVar="dlg" showEffect="fade" modal="true" header="Chart as an Image" resizable="false">
+	    <p:outputPanel id="output" layout="block" style="width:500px;height:300px"/>
+	</p:dialog>
+
+</h:body>
+</html>

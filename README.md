@@ -6,6 +6,8 @@ Based on example from:
 
 [https://www.codenotfound.com/jsf-primefaces-example-spring-boot-maven.html](https://www.codenotfound.com/jsf-primefaces-example-spring-boot-maven.html)
 
+and also primefaces showcase https://www.primefaces.org/showcase/
+
 # JPA resources
 https://spring.io/guides/gs/accessing-data-jpa/
 
