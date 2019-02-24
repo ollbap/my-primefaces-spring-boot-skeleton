@@ -6,24 +6,25 @@
 
 <h:head>
   <title>PrimeFaces Hello World Example</title>
+  <link rel="stylesheet" type="text/css" href="style.css"/>
 </h:head>
 
 <h:body>
 <h:form>
 
-<h1>Authentication</h1>
+<h1 class="title">Authentication</h1>
 
 <p><a href="/authentication?securityToken=1234_secure">Authenticate with security token</a></p>
 <p><a href="/logout ">Logout</a></p>
 <p>Current Authentication: #{authenticationService.authenticationDetails}</p>
 
-<h1>JSF Tests</h1>
+<h1 class="title">JSF Tests</h1>
 <p><h:commandButton value="Manager" action="customerManager"/></p>
 <p><h:commandButton value="Wizard" action="wizard"/></p>
 <p><h:commandButton value="Charts" action="charts"/></p>
 <p><h:commandButton value="File upload" action="upload"/></p>
 
-<h1>Rest Api tests</h1>
+<h1 class="title">Rest Api tests</h1>
 <p>
 	<a href = "/customersRestService">Rest Api </a>
 </p>
