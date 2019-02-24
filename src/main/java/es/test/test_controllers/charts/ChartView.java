@@ -1,4 +1,4 @@
-package es.test.charts;
+package es.test.test_controllers.charts;
 
 import java.io.Serializable;
 

@@ -1,4 +1,4 @@
-package es.test.wizard;
+package es.test.test_controllers.wizard;
 
 import java.io.Serializable;
 

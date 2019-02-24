@@ -5,4 +5,4 @@
  * the terms of the license agreement if they where provided to you.
  ******************************************************************************/
 @org.eclipse.jdt.annotation.NonNullByDefault
-package es.test.charts;
+package es.test.test_controllers.charts;

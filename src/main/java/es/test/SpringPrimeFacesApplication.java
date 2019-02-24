@@ -21,6 +21,7 @@ public class SpringPrimeFacesApplication {
 		SpringApplication.run(SpringPrimeFacesApplication.class, args);
 	}
 
+	@SuppressWarnings("static-method")
 	@Bean
 	public CommandLineRunner loadDummyTestData(CustomerRepository repository) {
 		return (args) -> {

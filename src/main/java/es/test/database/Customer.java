@@ -13,9 +13,9 @@ public class Customer {
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private Long id;
-    private String firstName;
-    private String lastName;
+    private Long id = 0l;
+    private String firstName = "";
+    private String lastName = "";
 
     protected Customer() {}
 

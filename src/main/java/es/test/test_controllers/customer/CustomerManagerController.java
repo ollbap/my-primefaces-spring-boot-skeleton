@@ -1,4 +1,4 @@
-package es.test.customer;
+package es.test.test_controllers.customer;
 
 import java.util.ArrayList;
 import java.util.Date;
