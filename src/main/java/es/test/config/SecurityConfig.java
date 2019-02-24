@@ -3,10 +3,15 @@ package es.test.config;
 
 import org.eclipse.jdt.annotation.Nullable;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
 @EnableWebSecurity(debug=false)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -21,12 +26,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.csrf().disable()
 			
 			.authorizeRequests()
-				.antMatchers("/css/**", "/index", "*.xhtml").permitAll()		
-				.antMatchers("/user/**").hasRole("USER")			
+				.antMatchers("/css/**", "*.xhtml").permitAll()		
+				.antMatchers("/secured/**").hasRole("USER")			
 				.and()
 				
 			.formLogin()
-				.loginPage("/login").failureUrl("/login-error");	
+				.loginPage("/index.xhtml")
+				.permitAll()
+				.failureUrl("/login-error")
+				.and()
+				
+			.logout()
+				.permitAll();	
 	}
 
 	@SuppressWarnings("static-method")
@@ -39,4 +50,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.inMemoryAuthentication()
 				.withUser("user").password("password").roles("USER");
 	}
+	
+    @Bean
+    @Override
+    public UserDetailsService userDetailsService() {
+        UserDetails user =
+             User.withDefaultPasswordEncoder()
+                .username("user")
+                .password("password")
+                .roles("USER")
+                .build();
+
+        return new InMemoryUserDetailsManager(user);
+    }
 }
