@@ -1,9 +1,27 @@
 spring:
   datasource:
-    driver-class-name: org.h2.Driver
-    url: jdbc:h2:mem:localhost;DB_CLOSE_ON_EXIT=FALSE
-    username: admin
-    password:
+    
+    ##
+    # H2 Configuration (uncomment to enable)
+    ##
+    #driver-class-name: org.h2.Driver
+    #url: jdbc:h2:mem:localhost;DB_CLOSE_ON_EXIT=FALSE
+    #username: admin
+    #password:
+    
+    ##
+    # Mysql Configuration (uncomment to enable)
+    ##
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:33306/data
+    username: user
+    password: changeit
+    
+  jpa:
+    hibernate:
+      ddl-auto: update
+    
+    
   servlet:
     multipart:
       max-file-size: 15MB

@@ -25,6 +25,10 @@ public class SpringPrimeFacesApplication {
 	@Bean
 	public CommandLineRunner loadDummyTestData(CustomerRepository repository) {
 		return (args) -> {
+			if (repository.count() > 0) {
+				return;
+			}
+			
 			// save a couple of customers
 			repository.save(new Customer("Jack", "Bauer"));
 			repository.save(new Customer("Chloe", "O'Brian"));
