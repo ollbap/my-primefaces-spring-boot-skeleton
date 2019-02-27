@@ -30,11 +30,11 @@ public class SpringPrimeFacesApplication {
 			}
 			
 			// save a couple of customers
-			repository.save(new Customer("Jack", "Bauer"));
-			repository.save(new Customer("Chloe", "O'Brian"));
-			repository.save(new Customer("Kim", "Bauer"));
-			repository.save(new Customer("David", "Palmer"));
-			repository.save(new Customer("Michelle", "Dessler"));
+			repository.save(new Customer("Jack", "Bauer", 20));
+			repository.save(new Customer("Chloe", "O'Brian", 21));
+			repository.save(new Customer("Kim", "Bauer", 45));
+			repository.save(new Customer("David", "Palmer", 61));
+			repository.save(new Customer("Michelle", "Dessler", 54));
 
 			// fetch all customers
 			log.info("Customers found with findAll():");

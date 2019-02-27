@@ -43,7 +43,7 @@ public class CustomerEditionController {
 	}
 
 	public void createNew() {
-		this.edited = new Customer("", "");
+		this.edited = new Customer("", "", 20);
 	}
 	
 }

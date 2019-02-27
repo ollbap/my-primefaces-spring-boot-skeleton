@@ -27,6 +27,10 @@
 				<h:outputText value="#{c.lastName}" />
 			</p:column>
 
+			<p:column headerText="Age">
+				<h:outputText value="#{c.age}" />
+			</p:column>
+
 			<p:column headerText="">
 				<p:commandButton action="#{customerManagerController.edit(c)}"
 					value="Edit" icon="pi pi-star" update=":editionDialog"
@@ -59,12 +63,16 @@
 				<h:outputText value="Last Name" />
 				<p:inputText
 					value="#{customerManagerController.editor.edited.lastName}" />
+					
+				<h:outputText value="Age" />
+				<p:inputText
+					value="#{customerManagerController.editor.edited.age}" />
 			</h:panelGrid>
 			<p:commandButton
 				action="#{customerManagerController.editor.saveEdition()}"
 				value="Save" icon="pi pi-star" update="mainForm" />
 			<p:commandButton value="Cancel" icon="pi pi-star"
-				oncomplete="PF('editionDialog').hide()" />
+				oncomplete="PF('editionDialog').hide()" process="@this" />
 		</h:form>
 	</p:dialog>
 
