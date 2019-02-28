@@ -3,6 +3,8 @@ package es.test.config;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,7 +34,9 @@ public class AuthenticationServlet extends HttpServlet {
 		if (securityToken != null && securityToken.equals("1234_secure")) {
 			Object principal = "InMemoryUser";
 			Object credentials = "";
-			Collection<? extends GrantedAuthority> authorities = Arrays.asList(new SimpleGrantedAuthority("CUSTOMERS_ROLE"), new SimpleGrantedAuthority("ADMINISTRATOR_ROLE"));
+			
+			List<String> roles = Arrays.asList("ROLE_CUSTOMER_MODIFY", "ADMINISTRATOR_ROLE");
+			Collection<GrantedAuthority> authorities = roles.stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList());
 			Authentication auth = new UsernamePasswordAuthenticationToken(principal, credentials, authorities);
 			SecurityContext sc = SecurityContextHolder.getContext();
 			sc.setAuthentication(auth);

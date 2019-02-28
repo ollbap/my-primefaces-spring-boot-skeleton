@@ -10,7 +10,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import es.test.database.Customer;
-import es.test.database.CustomerRepository;
+import es.test.database.CustomerService;
 import lombok.Getter;
 
 @Named
@@ -21,7 +21,7 @@ public class CustomerManagerController {
 	private Date postConstructDate = new Date();
 	
 	@Inject @Getter
-	private CustomerRepository customerRepository;
+	private CustomerService customerRepository;
 	
 	@Getter
 	private CustomerEditionController editor = new CustomerEditionController(this);
