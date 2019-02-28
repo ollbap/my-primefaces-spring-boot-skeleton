@@ -27,6 +27,15 @@ spring:
       max-file-size: 15MB
       max-request-size: 15MB
     
+joinfaces:
+  jsf:
+    project-stage: development
+  primefaces:
+    theme: omega
+    
+server:
+  error:
+    includeException: true
     
 logging:
   level:

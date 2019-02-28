@@ -56,4 +56,9 @@ public class CustomerManagerController {
 		customerRepository.findAll().forEach(c -> customers.add(c));
 	}
 	
+	@SuppressWarnings("static-method")
+	public void throwException()  {
+		throw new IllegalStateException("Test exception");
+	}
+	
 }

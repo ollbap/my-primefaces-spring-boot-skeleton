@@ -44,9 +44,24 @@
 		<p:commandButton action="#{customerManagerController.createNew()}"
 			value="New" icon="pi pi-star" update=":editionDialog"
 			oncomplete="PF('editionDialog').show()" />
+		<p:commandButton action="#{customerManagerController.throwException}" ajax="true" value="Exception ajax"/>
+		<p:commandButton action="#{customerManagerController.throwException}" ajax="false" value="Exception non ajax"/>
 		<p:commandButton action="index" value="Back"/>
 
-
+	    <p:ajaxExceptionHandler type="java.lang.Exception"
+	                            update="exceptionDialog"
+	                            onexception="PF('exceptionDialog').show();" />
+	     
+	    <p:dialog id="exceptionDialog" header="Exception '#{pfExceptionHandler.type}' occured!" widgetVar="exceptionDialog"
+	              height="500px">
+	        Message: #{pfExceptionHandler.message} <br/>
+	        StackTrace: <h:outputText value="#{pfExceptionHandler.formattedStackTrace}" escape="false" /> <br />
+	 
+	        <p:button onclick="document.location.href = document.location.href;"
+	                  value="Reload!"
+	                  rendered="#{pfExceptionHandler.type == 'javax.faces.application.ViewExpiredException'}" />
+	    </p:dialog>
+	    
 	</h:form>
 
 	<p:dialog id="editionDialog" header="editar" widgetVar="editionDialog"
