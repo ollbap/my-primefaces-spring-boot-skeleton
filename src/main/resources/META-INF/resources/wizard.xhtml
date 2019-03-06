@@ -140,9 +140,11 @@
                 </h:panelGrid>
  
                 <p:commandButton value="Submit" action="#{userWizard.save}" update="growl" process="@this"/>
+                
             </p:panel>
         </p:tab>
     </p:wizard>
+    <p:commandButton action="index" value="Back" process="@this" />
  
 </h:form>
 

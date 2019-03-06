@@ -1,5 +1,6 @@
 package es.test.test_controllers.customer;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -15,13 +16,14 @@ import lombok.Getter;
 
 @Named
 @ViewScoped
-public class CustomerManagerController {
-	
+public class CustomerManagerController implements Serializable {
+	private static final long serialVersionUID = 1L;
+
 	@Getter
 	private Date postConstructDate = new Date();
 	
 	@Inject @Getter
-	private CustomerService customerRepository;
+	private transient CustomerService customerRepository;
 	
 	@Getter
 	private CustomerEditionController editor = new CustomerEditionController(this);

@@ -4,6 +4,7 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.Serializable;
 
 import javax.faces.view.ViewScoped;
 import javax.imageio.ImageIO;
@@ -18,7 +19,8 @@ import org.primefaces.model.StreamedContent;
 
 @Named
 @ViewScoped
-public class GraphicImageView {
+public class GraphicImageView implements Serializable {
+	private static final long serialVersionUID = 1L;
 
 	@SuppressWarnings("static-method")
 	public StreamedContent getChart() throws IOException {
