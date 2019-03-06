@@ -9,6 +9,10 @@ import org.eclipse.jdt.annotation.Nullable;
 import org.primefaces.application.exceptionhandler.PrimeExceptionHandler;
 import org.primefaces.application.exceptionhandler.PrimeExceptionHandlerFactory;
 
+/**
+ * Extended primefaces exception handler factory in order to create a exception handler that redirects
+ * to the desired error page.
+ */
 public class ExtendedPrimeExceptionHandlerFactory extends PrimeExceptionHandlerFactory {
 	private static final String ERROR_PAGE = "error.xhtml";
 

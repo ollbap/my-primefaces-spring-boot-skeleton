@@ -19,6 +19,9 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 
+/**
+ * Authenticates the user depending on request parameters
+ */
 @WebServlet("/authentication")
 public class AuthenticationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
