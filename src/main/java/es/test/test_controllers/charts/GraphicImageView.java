@@ -31,7 +31,7 @@ public class GraphicImageView {
 	}
 
 	private static ByteArrayInputStream createInMemoryChartStream(JFreeChart jfreechart) throws IOException {
-		BufferedImage objBufferedImage=jfreechart.createBufferedImage(600,800);
+		BufferedImage objBufferedImage=jfreechart.createBufferedImage(300,400);
 		ByteArrayOutputStream bas = new ByteArrayOutputStream();
 		ImageIO.write(objBufferedImage, "png", bas);
 		byte[] byteArray=bas.toByteArray();

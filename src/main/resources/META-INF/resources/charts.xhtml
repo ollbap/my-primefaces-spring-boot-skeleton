@@ -33,7 +33,7 @@
 		<br />
 		
 		<h3 style="margin-top:0">JFreeChart</h3>
-		<p:graphicImage value="#{graphicImageView.chart}" />
+		<p:graphicImage value="#{graphicImageView.chart}" stream="false"/>
 		
 		<p:commandButton value="Download" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" icon="pi pi-arrow-down">
     	    <p:fileDownload value="#{graphicImageView.chart}" />
