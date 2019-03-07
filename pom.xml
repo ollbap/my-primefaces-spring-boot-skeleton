@@ -121,6 +121,19 @@
 			<version>4.0.1</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.liquibase</groupId>
+			<artifactId>liquibase-core</artifactId>
+			<version>3.6.3</version>
+			<exclusions>
+				<exclusion>
+                    <!-- Required because spring-boot required updated version, might be removed on the future -->
+					<artifactId>snakeyaml</artifactId>
+					<groupId>org.yaml</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
 	</dependencies>
 
 	<build>

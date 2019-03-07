@@ -43,3 +43,4 @@ logging:
     org.spring.security: INFO
     org.hibernate: INFO
     org.springframework.web: INFO
+    liquibase: INFO
