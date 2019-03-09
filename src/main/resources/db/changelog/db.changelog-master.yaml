@@ -4,20 +4,20 @@ databaseChangeLog:
       author: ollbap
       changes:
         - createTable:
-            tableName: person
+            tableName: customer
             columns:
               - column:
                   name: id
-                  type: int
+                  type: bigint
                   autoIncrement: true
                   constraints:
                     primaryKey: true
                     nullable: false
               - column:
-                  name: firstname
+                  name: first_name
                   type: varchar(50)
               - column:
-                  name: lastname
+                  name: last_name
                   type: varchar(50)
                   constraints:
                     nullable: false
@@ -27,8 +27,8 @@ databaseChangeLog:
       author: ollbap
       changes:
         - addColumn:
-            tableName: person
+            tableName: customer
             columns:
               - column:
-                  name: username
-                  type: varchar(8)
+                  name: age
+                  type: int
