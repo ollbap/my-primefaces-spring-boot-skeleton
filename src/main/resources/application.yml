@@ -1,3 +1,10 @@
+##
+# Root configuration file embedded in application, configurations can be overwritten with external yml file.
+##
+app:
+  lesscss:
+    useCache: false
+
 spring:
   datasource:
     

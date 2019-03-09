@@ -1,5 +1,7 @@
 package es.test.database;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,9 +15,10 @@ import lombok.Data;
 @Entity
 @Data
 @AllArgsConstructor
-public class Customer {
-	
-    @Id
+public class Customer implements Serializable {
+	private static final long serialVersionUID = 1L;
+
+	@Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id = 0l;
     

@@ -42,10 +42,10 @@ public class GraphicImageView implements Serializable {
 
 	private static PieDataset createDataset() {
 		DefaultPieDataset dataset = new DefaultPieDataset();
-		dataset.setValue("New York", new Double(45.0));
-		dataset.setValue("London", new Double(15.0));
-		dataset.setValue("Paris", new Double(25.2));
-		dataset.setValue("Berlin", new Double(14.8));
+		dataset.setValue("New York", 45.0);
+		dataset.setValue("London", 15.0);
+		dataset.setValue("Paris", 25.2);
+		dataset.setValue("Berlin", 14.8);
 
 		return dataset;
 	}

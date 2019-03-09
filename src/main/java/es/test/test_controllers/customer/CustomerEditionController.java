@@ -1,5 +1,7 @@
 package es.test.test_controllers.customer;
 
+import java.io.Serializable;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
@@ -10,8 +12,9 @@ import es.test.database.Customer;
 import lombok.Getter;
 import lombok.Setter;
 
-public class CustomerEditionController {
-	
+public class CustomerEditionController implements Serializable {
+	private static final long serialVersionUID = 1L;
+
 	private CustomerManagerController manager;
 	
 	@Getter @Setter

@@ -40,7 +40,7 @@ public class SpringPrimeFacesApplication {
 			log.info("Customers found with findAll():");
 			log.info("-------------------------------");
 			for (Customer customer : repository.findAll()) {
-				log.info(customer.toString());
+				log.info("Customer: {}", customer);
 			}
 			log.info("");
 
@@ -58,9 +58,6 @@ public class SpringPrimeFacesApplication {
 			repository.findByLastName("Bauer").forEach(bauer -> {
 				log.info(bauer.toString());
 			});
-			// for (Customer bauer : repository.findByLastName("Bauer")) {
-			// log.info(bauer.toString());
-			// }
 			log.info("");
 		};
 	}

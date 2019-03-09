@@ -12,8 +12,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.IOUtils;
 import org.eclipse.jdt.annotation.Nullable;
+import org.springframework.beans.factory.annotation.Value;
 
 import com.inet.lib.less.Less;
+
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * A on the fly css generator from less file.
@@ -22,9 +26,13 @@ import com.inet.lib.less.Less;
 public class LessCssServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	private static final boolean USE_CACHE = false;
+	private final boolean useCache;
+	@Getter @Setter
 	private static @Nullable String cachedCss = null;
-
+	
+	public LessCssServlet(@Value("${app.lesscss.useCache}") boolean useCache) {
+		this.useCache = useCache;
+	}
 
 	@Override
 	protected void doGet(@Nullable HttpServletRequest req, @Nullable HttpServletResponse response) throws IOException {
@@ -33,14 +41,15 @@ public class LessCssServlet extends HttpServlet {
 		}
 		
 		String css;
-		if (!USE_CACHE || cachedCss == null) {
+		String lcachedCss = getCachedCss();
+		if (!useCache || lcachedCss == null) {
 			try (InputStream lessResource = this.getClass().getResourceAsStream("/static/style.less")) {
 				String lessString = IOUtils.toString(lessResource, Charset.defaultCharset());
 				css = Less.compile(null, lessString, true);
-				cachedCss = css;
+				setCachedCss(css);
 			}
 		} else {
-			css = cachedCss;
+			css = lcachedCss;
 		}
 		
 		
